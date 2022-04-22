@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatCommonModule} from "@angular/material/core";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatCommonModule} from "@angular/material/core";
     HttpClientModule,
     MatTableModule,
     MatCommonModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

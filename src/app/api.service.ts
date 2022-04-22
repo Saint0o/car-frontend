@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Observable, Subscribable} from "rxjs";
 
-const host = 'http://localhost:8189/showroom/v1/'
+const host = 'https://helloworldprojectt.herokuapp.com/v1/'
 
 export interface Car {
   brandName: string;
@@ -29,7 +29,9 @@ export class ApiService {
     return this.http.get<Car[]>(host + 'cars')
   }
 
-  // postAuth(): Observable<Auth> {
-  //   return this.http.post(Auth)(host + 'authorization')
-  // }
+  postAuth(auth: Auth){
+
+    const body = {login: auth.login, password: auth.password};
+    return this.http.post(host + 'authorization', body)
+  }
 }

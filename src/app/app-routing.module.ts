@@ -7,7 +7,7 @@ import {MainComponent} from "./main/main.component";
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'auth',
     component: AuthComponent,
     data: {login: true}
   },
@@ -21,7 +21,7 @@ const routes: Routes = [
     component: AdminComponent,
   },
   {
-    path: '',
+    path: 'cars',
     component: MainComponent,
   },
   {
