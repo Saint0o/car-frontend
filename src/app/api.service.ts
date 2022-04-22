@@ -13,6 +13,11 @@ export interface Car {
   price: number;
 }
 
+export interface Auth {
+  login: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,4 +28,8 @@ export class ApiService {
   getCars(): Observable<Car[]> {
     return this.http.get<Car[]>(host + 'cars')
   }
+
+  // postAuth(): Observable<Auth> {
+  //   return this.http.post(Auth)(host + 'authorization')
+  // }
 }
