@@ -4,17 +4,17 @@ import {Router} from "@angular/router";
 import {Car} from "../Car";
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class AdminComponent {
+export class EditComponent {
 
   car: Car = new Car("", "", 0, "", 0, 0);
 
   constructor(private apiService: ApiService, private router: Router) { }
 
-  addCar(car: Car) {
+  addCar(car: Car) {  
     this.apiService.postCar(car).subscribe();
 
     this.router.navigate(['cars']);

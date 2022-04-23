@@ -11,8 +11,12 @@
       <td>{{ car.price }}</td>
       <td>{{ car.id }}</td>
       <td>{{ car.power }}</td>
+      <td><button class="btn btn-danger" (click)="delete(car.id)">DELETE</button> </td>
     </tr>
   </table>
+</div>
+<div class="form-group">
+  <button class="btn btn-success" (click)="add()">ADD CAR</button>
 </div>
 
 

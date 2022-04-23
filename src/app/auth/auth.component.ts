@@ -4,9 +4,9 @@ import {Auth} from "../Auth";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
+  selector: 'app-Edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss'],
   providers: [ApiService]
 })
 export class AuthComponent {
@@ -17,7 +17,7 @@ export class AuthComponent {
 
   submit(auth: Auth) {
     this.apiService.postAuth(auth)
-      .subscribe()
+      .subscribe();
 
     this.router.navigate(['cars']);
   }

@@ -17,7 +17,7 @@ const routes: Routes = [
     data: {login: false}
   },
   {
-    path: 'admin',
+    path: 'add-car',
     component: AdminComponent,
   },
   {
