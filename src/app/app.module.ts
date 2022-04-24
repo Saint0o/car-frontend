@@ -7,14 +7,17 @@ import { AuthComponent } from './auth/auth.component';
 import { AdminComponent } from './admin/admin.component';
 import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatCommonModule} from "@angular/material/core";
 import {FormsModule} from "@angular/forms";
+import { EditComponent } from './edit/edit.component';
+import {AuthInterceptor} from "./AuthInterceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
+    EditComponent,
     AuthComponent,
     AdminComponent,
     MainComponent
@@ -28,7 +31,12 @@ import {FormsModule} from "@angular/forms";
     MatCommonModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,23 +1,23 @@
 <div class="alert alert-success">
   <table>
-    <td>Неименование параметра</td>
+    <td>Наименование параметра</td>
     <td>Значение</td>
     <tr>
       <td>name model</td>
-      <td><input class="form-control" name="model" [(ngModel)]="car.model" /></td>
+      <td><input class="form-control" name="model" value="{{ car.model }}" [(ngModel)]="car.model" /></td>
     </tr>
     <tr>
       <td>price</td>
-      <td><input class="form-control" name="price" [(ngModel)]="car.price" /></td>
+      <td><input class="form-control" name="price" value="{{ car.price }}" [(ngModel)]="car.price" /></td>
     </tr>
     <tr>
       <td>model</td>
-      <td><input class="form-control" name="power" [(ngModel)]="car.power" /></td>
+      <td><input class="form-control" name="power" value="{{ car.power }}" [(ngModel)]="car.power" /></td>
     </tr>
   </table>
 </div>
 <div class="form-group">
-  <button class="btn btn-success" (click)="addCar(car)">ADD CAR</button>
+  <button class="btn btn-success" (click)="editCar(car)">EDIT CAR</button>
 </div>
 
 

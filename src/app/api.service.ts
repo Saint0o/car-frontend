@@ -1,7 +1,16 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from "@angular/common/http";
 import {Observable, Subscribable} from "rxjs";
 import {Car} from "./Car";
+import {User} from "./User";
 
 const host = 'http://localhost:8189/v1/'
 
@@ -25,7 +34,7 @@ export class ApiService {
 
   postAuth(auth: Auth) {
     const body = {login: auth.login, password: auth.password};
-    return this.http.post(host + 'authorization/', body);
+    return this.http.post<User>(host + 'authorization/', body);
   }
 
   deleteCar(id: number) {
@@ -36,6 +45,17 @@ export class ApiService {
     const body = {
       model: car.model, price: car.price, power: car.power, description: "description", brandName: "bmw"
     }
-    return this.http.post(host + 'cars/', body)
+    return this.http.post(host + 'cars/', body);
+  }
+
+  putCar(car: Car) {
+    const body = {
+      id: car.id, model: car.model, price: car.price, power: car.power, description: "description", brandName: "bmw"
+    }
+    return this.http.put(host + 'cars/', body);
+  }
+
+  getCar(id: number | undefined): Observable<Car> {
+    return this.http.get<Car>(host + 'cars/' + id);
   }
 }

@@ -4,6 +4,7 @@ import {AppComponent} from "./app.component";
 import {AuthComponent} from "./auth/auth.component";
 import {AdminComponent} from "./admin/admin.component";
 import {MainComponent} from "./main/main.component";
+import {EditComponent} from "./edit/edit.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'cars',
     component: MainComponent,
+  },
+  {
+    path: 'edit-car/:id',
+    component: EditComponent,
   },
   {
     path: '**',

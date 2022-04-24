@@ -30,6 +30,10 @@ export class MainComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['add-car'])
+    this.router.navigate(['add-car/'])
+  }
+
+  edit(id: number) {
+    this.router.navigate(['edit-car/' + id])
   }
 }
