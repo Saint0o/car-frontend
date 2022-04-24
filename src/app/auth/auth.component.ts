@@ -21,14 +21,20 @@ export class AuthComponent {
 
   submit(auth: Auth) {
     this.apiService.postAuth(auth)
-      .subscribe(user => {
-        console.log(user.jwt);
-        localStorage.setItem('jwt', user.jwt)
+      .subscribe(res => {
+        if (res.status == 200) {
+          let jwtUser = res.body?.jwt
+          if (jwtUser != null) {
+            localStorage.setItem('jwt', jwtUser)
+            this.router.navigate(['cars'])
+          }
+        } else {
+          this.router.navigate(['error403'])
+        }
       })
 
     console.log(this.user.jwt)
 
-    this.router.navigate(['cars'])
   }
 
 

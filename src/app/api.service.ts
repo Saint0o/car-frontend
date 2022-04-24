@@ -8,7 +8,7 @@ import {
   HttpRequest,
   HttpResponse
 } from "@angular/common/http";
-import {Observable, Subscribable} from "rxjs";
+import {observable, Observable, Subscribable} from "rxjs";
 import {Car} from "./Car";
 import {User} from "./User";
 
@@ -34,7 +34,7 @@ export class ApiService {
 
   postAuth(auth: Auth) {
     const body = {login: auth.login, password: auth.password};
-    return this.http.post<User>(host + 'authorization/', body);
+    return this.http.post<User>(host + 'authorization/', body, {observe: 'response'});
   }
 
   deleteCar(id: number) {

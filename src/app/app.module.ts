@@ -13,6 +13,7 @@ import {MatCommonModule} from "@angular/material/core";
 import {FormsModule} from "@angular/forms";
 import { EditComponent } from './edit/edit.component';
 import {AuthInterceptor} from "./AuthInterceptor";
+import { Error403Component } from './error403/error403.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {AuthInterceptor} from "./AuthInterceptor";
     EditComponent,
     AuthComponent,
     AdminComponent,
-    MainComponent
+    MainComponent,
+    Error403Component
   ],
   imports: [
     BrowserModule,
