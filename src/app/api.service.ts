@@ -32,23 +32,23 @@ export class ApiService {
     return this.http.get<Car[]>(host + 'cars/');
   }
 
-  postAuth(auth: Auth) {
+  postAuth(auth: Auth): Observable<any> {
     const body = {login: auth.login, password: auth.password};
     return this.http.post<User>(host + 'authorization/', body, {observe: 'response'});
   }
 
-  deleteCar(id: number) {
+  deleteCar(id: number): Observable<any> {
     return this.http.delete(host + 'cars/' + id);
   }
 
-  postCar(car: Car) {
+  postCar(car: Car): Observable<any> {
     const body = {
       model: car.model, price: car.price, power: car.power, description: "description", brandName: "bmw"
     }
     return this.http.post(host + 'cars/', body);
   }
 
-  putCar(car: Car) {
+  putCar(car: Car): Observable<any> {
     const body = {
       id: car.id, model: car.model, price: car.price, power: car.power, description: "description", brandName: "bmw"
     }
